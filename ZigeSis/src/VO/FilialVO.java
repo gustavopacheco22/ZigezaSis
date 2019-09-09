@@ -9,6 +9,13 @@ public class FilialVO {
 
 public FilialVO(){}
 
+    public FilialVO(int idfilial, String nombrefilial, String ubicacionfilial) {
+        this.idfilial = idfilial;
+        this.nombrefilial = nombrefilial;
+        this.ubicacionfilial = ubicacionfilial;
+    }
+    
+
 /*Todo los codigos get*/
     public int getIdfilial(){
         return idfilial;

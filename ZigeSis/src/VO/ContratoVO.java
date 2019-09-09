@@ -6,11 +6,20 @@ public class ContratoVO {
     int idcontrato;
     int fechafirma;
     int fechavencimiento;
-    String estado;
+    int estadoCo;
     int dni;
     int idcategoria;
 
 public ContratoVO(){}
+
+    public ContratoVO(int idcontrato, int fechafirma, int fechavencimiento, int estadoCo, int dni, int idcategoria) {
+        this.idcontrato = idcontrato;
+        this.fechafirma = fechafirma;
+        this.fechavencimiento = fechavencimiento;
+        this.estadoCo = estadoCo;
+        this.dni = dni;
+        this.idcategoria = idcategoria;
+    }
 
 /*Todo los codigos get*/
     public int getIdcontrato(){
@@ -22,8 +31,8 @@ public ContratoVO(){}
     public int getFechavencimiento(){
         return fechavencimiento;
     }
-    public String getEstado(){
-        return estado;
+    public int getEstado(){
+        return estadoCo;
     }
     public int getDni(){
         return dni;
@@ -43,8 +52,8 @@ public ContratoVO(){}
     public void setFechavencimiento(int fechavencimiento){
         this.fechavencimiento = fechavencimiento;
     }
-    public void setEstado(String estado){
-        this.estado = estado;
+    public void setEstado(int estadoCo){
+        this.estadoCo = estadoCo;
     }
     public void setDni(int dni){
         this.dni = dni;
@@ -53,4 +62,5 @@ public ContratoVO(){}
         this.idcategoria = idcategoria;
     }
 
+    
 }

@@ -11,8 +11,18 @@ public class InformeVO {
     String comentario;
     int dni;
 
-public InformeVO(){}
+    public InformeVO(){}
 
+    public InformeVO(int nroinforme, String dia, String mes, String anio, String descripcion, String comentario, int dni) {
+        this.nroinforme = nroinforme;
+        this.dia = dia;
+        this.mes = mes;
+        this.anio = anio;
+        this.descripcion = descripcion;
+        this.comentario = comentario;
+        this.dni = dni;
+    }
+    
 /*Todo los codigos get*/
     public int getNroinforme(){
         return nroinforme;

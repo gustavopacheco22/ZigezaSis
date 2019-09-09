@@ -8,6 +8,12 @@ import java.util.ArrayList;
 
 /*Metodo listar*/
 public class SueldoDAO{
+    
+    final String INSERT = "INSERT INTO sueldo(DNI,mes,anio,idRetCon,sueldoBase,montoSindicato, montoHsEx, montoJubilacion, montoObraSocial, montoDeAporteJu, montoDeAporteObSoc, netocobrar) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";   
+    final String UPDATE = "UPDATE sueldo SET DNI=?,mes=?,anio=?,idRetCon=?,sueldoBase=?,montoSindicato=?, montoHsEx=?, montoJubilacion=?, montoObraSocial=?, montoDeAporteJu=?, montoDeAporteObSoc=?, netocobrar=? WHERE idRetCon = ?";
+    final String DELETE = "DELETE FROM sueldo WHERE idSueldo";
+    final String GETALL = "SELECT * FROM sueldo";
+    final String GETONE = "SELECT * FROM sueldo WHERE idSueldo= ?";
 
     public ArrayList<SueldoVO> Listar_SueldoVO(){
         ArrayList<SueldoVO> list = new ArrayList<SueldoVO>();
@@ -16,7 +22,7 @@ public class SueldoDAO{
         ResultSet rs = null;
         PreparedStatement ps = null;
         try{
-            ps = conec.getConnection().prepareStatement(sql);
+            ps = conec.getConnection().prepareStatement(GETALL);
             rs = ps.executeQuery();
             while(rs.next()){
                 SueldoVO vo = new SueldoVO();
@@ -56,7 +62,7 @@ public class SueldoDAO{
         String sql = "INSERT INTO tabla (campo1, campo2) VALUES(?,?);";
         PreparedStatement ps = null;
         try{
-            ps = conec.getConnection().prepareStatement(sql);
+            ps = conec.getConnection().prepareStatement(INSERT);
             ps.setInt(1, vo.getIdsueldo());
             ps.setInt(2, vo.getDni());
             ps.setString(3, vo.getMes());
@@ -90,7 +96,7 @@ public class SueldoDAO{
         String sql = "UPDATE tabla SET campo2 = ? WHERE campo1 = ?;";
         PreparedStatement ps = null;
         try{
-            ps = conec.getConnection().prepareStatement(sql);
+            ps = conec.getConnection().prepareStatement(UPDATE);
             ps.setInt(1, vo.getIdsueldo());
             ps.setInt(2, vo.getDni());
             ps.setString(3, vo.getMes());
@@ -124,7 +130,7 @@ public class SueldoDAO{
         String sql = "DELETE FROM tabla WHERE campo1 = ?;";
         PreparedStatement ps = null;
         try{
-            ps = conec.getConnection().prepareStatement(sql);
+            ps = conec.getConnection().prepareStatement(DELETE);
             ps.setInt(1, vo.getIdsueldo());
             ps.setInt(2, vo.getDni());
             ps.setString(3, vo.getMes());

@@ -8,7 +8,13 @@ import java.util.ArrayList;
 
 /*Metodo listar*/
 public class RetenycontDAO{
-
+    
+    final String INSERT = "INSERT INTO retenycont (porcApJub,PorcObSoc,PorSind,PorApJubPat,PorObSocPat,fechaVigencia) VALUES (?,?,?,?,?,?)";   
+    final String UPDATE = "UPDATE retenycont SET porcApJub = ?,PorcObSoc =?,PorSind=?,PorApJubPat=?,PorObSocPat=?,fechaVigencia=? WHERE idRetCon = ?";
+    final String DELETE = "DELETE FROM retenycont WHERE idRetCon";
+    final String GETALL = "SELECT * FROM retenycont";
+    final String GETONE = "SELECT * FROM retenycont WHERE idRetCon = ?";
+    
     public ArrayList<RetenycontVO> Listar_RetenycontVO(){
         ArrayList<RetenycontVO> list = new ArrayList<RetenycontVO>();
         Conectar conec = new Conectar();

@@ -8,15 +8,21 @@ import java.util.ArrayList;
 
 /*Metodo listar*/
 public class InformeDAO{
+    
+    final String INSERT = "INSERT INTO informe(dia, mes, anio, descripcion, comentario, DNI) VALUES (?,?,?,?,?,?)";
+    final String UPDATE = "UPDATE informe SET nroInforme = ?, dia = ?,mes = ?,anio = ?, descripcion = ?, comentario = ?,DNI = ? WHERE nroInforme = ?";
+    final String DELETE = "DELETE FROM informe WHERE nroInforme = ?";
+    final String GETALL = "SELECT * FROM informe";
+    final String GETONE = "SELECT * FROM informe WHERE nroInforme = ?;";
 
     public ArrayList<InformeVO> Listar_InformeVO(){
         ArrayList<InformeVO> list = new ArrayList<InformeVO>();
         Conectar conec = new Conectar();
-        String sql = "SELECT * FROM tabla;";
+        //String sql = "SELECT * FROM tabla;";
         ResultSet rs = null;
         PreparedStatement ps = null;
         try{
-            ps = conec.getConnection().prepareStatement(sql);
+            ps = conec.getConnection().prepareStatement(GETALL);
             rs = ps.executeQuery();
             while(rs.next()){
                 InformeVO vo = new InformeVO();
@@ -47,10 +53,10 @@ public class InformeDAO{
 /*Metodo agregar*/
     public void Agregar_InformeVO(InformeVO vo){
         Conectar conec = new Conectar();
-        String sql = "INSERT INTO tabla (campo1, campo2) VALUES(?,?);";
+        //String sql = "INSERT INTO tabla (campo1, campo2) VALUES(?,?);";
         PreparedStatement ps = null;
         try{
-            ps = conec.getConnection().prepareStatement(sql);
+            ps = conec.getConnection().prepareStatement(INSERT);
             ps.setInt(1, vo.getNroinforme());
             ps.setString(2, vo.getDia());
             ps.setString(3, vo.getMes());
@@ -75,10 +81,10 @@ public class InformeDAO{
 /*Metodo Modificar*/
     public void Modificar_InformeVO(InformeVO vo){
         Conectar conec = new Conectar();
-        String sql = "UPDATE tabla SET campo2 = ? WHERE campo1 = ?;";
+        //String sql = "UPDATE tabla SET campo2 = ? WHERE campo1 = ?;";
         PreparedStatement ps = null;
         try{
-            ps = conec.getConnection().prepareStatement(sql);
+            ps = conec.getConnection().prepareStatement(UPDATE);
             ps.setInt(1, vo.getNroinforme());
             ps.setString(2, vo.getDia());
             ps.setString(3, vo.getMes());
@@ -103,10 +109,10 @@ public class InformeDAO{
 /*Metodo Eliminar*/
     public void Eliminar_InformeVO(InformeVO vo){
         Conectar conec = new Conectar();
-        String sql = "DELETE FROM tabla WHERE campo1 = ?;";
+        //String sql = "DELETE FROM tabla WHERE campo1 = ?;";
         PreparedStatement ps = null;
         try{
-            ps = conec.getConnection().prepareStatement(sql);
+            ps = conec.getConnection().prepareStatement(DELETE);
             ps.setInt(1, vo.getNroinforme());
             ps.setString(2, vo.getDia());
             ps.setString(3, vo.getMes());

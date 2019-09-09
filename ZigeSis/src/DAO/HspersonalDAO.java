@@ -8,15 +8,21 @@ import java.util.ArrayList;
 
 /*Metodo listar*/
 public class HspersonalDAO{
-
+    
+    final String INSERT = "INSERT INTO hspersonal (mes, idFilial, horasTrabajadas, horasExtras, comentarios, DNI) VALUES(?,?,?,?,?,?)";
+    final String UPDATE = "UPDATE hspersonal SET mes = ?, idFilial = ?, horasTrabajadas = ?,horasExtras = ?, comentarios = ?, DNI = ?  WHERE idMovimientoFilial = ?";
+    final String DELETE = "DELETE FROM hspersonal WHERE idMovimientoFilial = ?";
+    final String GETALL = "SELECT * FROM tabla";
+    final String GETONE = "SELECT * FROM tabla WHERE idMovimientoFilial = ?";
+    
     public ArrayList<HspersonalVO> Listar_HspersonalVO(){
         ArrayList<HspersonalVO> list = new ArrayList<HspersonalVO>();
         Conectar conec = new Conectar();
-        String sql = "SELECT * FROM tabla;";
+        //String sql = "SELECT * FROM tabla;";
         ResultSet rs = null;
         PreparedStatement ps = null;
         try{
-            ps = conec.getConnection().prepareStatement(sql);
+            ps = conec.getConnection().prepareStatement(GETALL);
             rs = ps.executeQuery();
             while(rs.next()){
                 HspersonalVO vo = new HspersonalVO();
@@ -47,10 +53,10 @@ public class HspersonalDAO{
 /*Metodo agregar*/
     public void Agregar_HspersonalVO(HspersonalVO vo){
         Conectar conec = new Conectar();
-        String sql = "INSERT INTO tabla (campo1, campo2) VALUES(?,?);";
+        //String sql = "INSERT INTO tabla (campo1, campo2) VALUES(?,?);";
         PreparedStatement ps = null;
         try{
-            ps = conec.getConnection().prepareStatement(sql);
+            ps = conec.getConnection().prepareStatement(INSERT);
             ps.setInt(1, vo.getIdmovimientofilial());
             ps.setString(2, vo.getMes());
             ps.setInt(3, vo.getIdfilial());
@@ -75,10 +81,10 @@ public class HspersonalDAO{
 /*Metodo Modificar*/
     public void Modificar_HspersonalVO(HspersonalVO vo){
         Conectar conec = new Conectar();
-        String sql = "UPDATE tabla SET campo2 = ? WHERE campo1 = ?;";
+        //String sql = "UPDATE tabla SET campo2 = ? WHERE campo1 = ?;";
         PreparedStatement ps = null;
         try{
-            ps = conec.getConnection().prepareStatement(sql);
+            ps = conec.getConnection().prepareStatement(UPDATE);
             ps.setInt(1, vo.getIdmovimientofilial());
             ps.setString(2, vo.getMes());
             ps.setInt(3, vo.getIdfilial());
@@ -103,10 +109,10 @@ public class HspersonalDAO{
 /*Metodo Eliminar*/
     public void Eliminar_HspersonalVO(HspersonalVO vo){
         Conectar conec = new Conectar();
-        String sql = "DELETE FROM tabla WHERE campo1 = ?;";
+        //String sql = "DELETE FROM tabla WHERE campo1 = ?;";
         PreparedStatement ps = null;
         try{
-            ps = conec.getConnection().prepareStatement(sql);
+            ps = conec.getConnection().prepareStatement(DELETE);
             ps.setInt(1, vo.getIdmovimientofilial());
             ps.setString(2, vo.getMes());
             ps.setInt(3, vo.getIdfilial());

@@ -7,8 +7,14 @@ public class CategoriaVO {
     int montoacobrar;
     String descripcion;
 
-public CategoriaVO(){}
+    public CategoriaVO(){}
 
+    public CategoriaVO(int idcategoria, int montoacobrar, String descripcion) {
+        this.idcategoria = idcategoria;
+        this.montoacobrar = montoacobrar;
+        this.descripcion = descripcion;
+    }
+    
 /*Todo los codigos get*/
     public int getIdcategoria(){
         return idcategoria;

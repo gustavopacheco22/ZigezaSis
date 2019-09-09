@@ -8,15 +8,21 @@ import java.util.ArrayList;
 
 /*Metodo listar*/
 public class FilialDAO{
-
+    
+    final String INSERT = "INSERT INTO filial (nombreFilial, ubicacionFilial) VALUES(?,?)";
+    final String UPDATE = "UPDATE filial SET nombreFilial = ?, ubicacionFilial = WHERE idFilial = ?";
+    final String DELETE = "DELETE FROM filial WHERE idFilial = ?";
+    final String GETALL = "SELECT * FROM filial";
+    final String GETONE = "SELECT * FROM filial WHERE idFilial = ?";
+    
     public ArrayList<FilialVO> Listar_FilialVO(){
         ArrayList<FilialVO> list = new ArrayList<FilialVO>();
         Conectar conec = new Conectar();
-        String sql = "SELECT * FROM tabla;";
+        //String sql = "SELECT * FROM tabla;";
         ResultSet rs = null;
         PreparedStatement ps = null;
         try{
-            ps = conec.getConnection().prepareStatement(sql);
+            ps = conec.getConnection().prepareStatement(GETALL);
             rs = ps.executeQuery();
             while(rs.next()){
                 FilialVO vo = new FilialVO();
@@ -43,10 +49,10 @@ public class FilialDAO{
 /*Metodo agregar*/
     public void Agregar_FilialVO(FilialVO vo){
         Conectar conec = new Conectar();
-        String sql = "INSERT INTO tabla (campo1, campo2) VALUES(?,?);";
+        //String sql = "INSERT INTO tabla (campo1, campo2) VALUES(?,?);";
         PreparedStatement ps = null;
         try{
-            ps = conec.getConnection().prepareStatement(sql);
+            ps = conec.getConnection().prepareStatement(INSERT);
             ps.setInt(1, vo.getIdfilial());
             ps.setString(2, vo.getNombrefilial());
             ps.setString(3, vo.getUbicacionfilial());
@@ -67,10 +73,10 @@ public class FilialDAO{
 /*Metodo Modificar*/
     public void Modificar_FilialVO(FilialVO vo){
         Conectar conec = new Conectar();
-        String sql = "UPDATE tabla SET campo2 = ? WHERE campo1 = ?;";
+        //String sql = "UPDATE tabla SET campo2 = ? WHERE campo1 = ?;";
         PreparedStatement ps = null;
         try{
-            ps = conec.getConnection().prepareStatement(sql);
+            ps = conec.getConnection().prepareStatement(UPDATE);
             ps.setInt(1, vo.getIdfilial());
             ps.setString(2, vo.getNombrefilial());
             ps.setString(3, vo.getUbicacionfilial());
@@ -91,10 +97,10 @@ public class FilialDAO{
 /*Metodo Eliminar*/
     public void Eliminar_FilialVO(FilialVO vo){
         Conectar conec = new Conectar();
-        String sql = "DELETE FROM tabla WHERE campo1 = ?;";
+        //String sql = "DELETE FROM tabla WHERE campo1 = ?;";
         PreparedStatement ps = null;
         try{
-            ps = conec.getConnection().prepareStatement(sql);
+            ps = conec.getConnection().prepareStatement(DELETE);
             ps.setInt(1, vo.getIdfilial());
             ps.setString(2, vo.getNombrefilial());
             ps.setString(3, vo.getUbicacionfilial());

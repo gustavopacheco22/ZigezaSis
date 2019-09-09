@@ -9,10 +9,21 @@ public class EmpeladoVO {
     int telefono;
     String domicilio;
     String correoelectronico;
-    String estado;
+    int estadoEm;
     String nombresindicato;
 
-public EmpeladoVO(){}
+    public EmpeladoVO(){}
+
+    public EmpeladoVO(int dni, String nombre, String apellido, int telefono, String domicilio, String correoelectronico, int estadoEm, String nombresindicato) {
+        this.dni = dni;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.telefono = telefono;
+        this.domicilio = domicilio;
+        this.correoelectronico = correoelectronico;
+        this.estadoEm = estadoEm;
+        this.nombresindicato = nombresindicato;
+    }
 
 /*Todo los codigos get*/
     public int getDni(){
@@ -33,8 +44,8 @@ public EmpeladoVO(){}
     public String getCorreoelectronico(){
         return correoelectronico;
     }
-    public String getEstado(){
-        return estado;
+    public int getEstado(){
+        return estadoEm;
     }
     public String getNombresindicato(){
         return nombresindicato;
@@ -60,8 +71,8 @@ public EmpeladoVO(){}
     public void setCorreoelectronico(String correoelectronico){
         this.correoelectronico = correoelectronico;
     }
-    public void setEstado(String estado){
-        this.estado = estado;
+    public void setEstado(int estadoEm){
+        this.estadoEm = estadoEm;
     }
     public void setNombresindicato(String nombresindicato){
         this.nombresindicato = nombresindicato;

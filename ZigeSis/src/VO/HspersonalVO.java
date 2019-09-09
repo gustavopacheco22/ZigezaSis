@@ -13,6 +13,18 @@ public class HspersonalVO {
 
 public HspersonalVO(){}
 
+    public HspersonalVO(int idmovimientofilial, String mes, int idfilial, int horastrabajadas, int horasextras, String comentarios, int dni) {
+        this.idmovimientofilial = idmovimientofilial;
+        this.mes = mes;
+        this.idfilial = idfilial;
+        this.horastrabajadas = horastrabajadas;
+        this.horasextras = horasextras;
+        this.comentarios = comentarios;
+        this.dni = dni;
+    }
+
+
+
 /*Todo los codigos get*/
     public int getIdmovimientofilial(){
         return idmovimientofilial;

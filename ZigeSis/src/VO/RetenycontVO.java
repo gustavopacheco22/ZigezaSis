@@ -11,7 +11,18 @@ public class RetenycontVO {
     int porobsocpat;
     int fechavigencia;
 
-public RetenycontVO(){}
+    public RetenycontVO(){}
+
+    public RetenycontVO(int idretcon, int porcapjub, int porcobsoc, int porsind, int porapjubpat, int porobsocpat, int fechavigencia) {
+        this.idretcon = idretcon;
+        this.porcapjub = porcapjub;
+        this.porcobsoc = porcobsoc;
+        this.porsind = porsind;
+        this.porapjubpat = porapjubpat;
+        this.porobsocpat = porobsocpat;
+        this.fechavigencia = fechavigencia;
+    }
+    
 
 /*Todo los codigos get*/
     public int getIdretcon(){

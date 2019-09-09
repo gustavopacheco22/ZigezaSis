@@ -17,7 +17,23 @@ public class SueldoVO {
     int montodeaporteobsoc;
     int netocobrar;
 
-public SueldoVO(){}
+    public SueldoVO(){}
+
+    public SueldoVO(int idsueldo, int dni, String mes, String anio, int idretcon, int sueldobase, int montosindicato, int montohsex, int montojubilacion, int montoobrasocial, int montodeaporteju, int montodeaporteobsoc, int netocobrar) {
+        this.idsueldo = idsueldo;
+        this.dni = dni;
+        this.mes = mes;
+        this.anio = anio;
+        this.idretcon = idretcon;
+        this.sueldobase = sueldobase;
+        this.montosindicato = montosindicato;
+        this.montohsex = montohsex;
+        this.montojubilacion = montojubilacion;
+        this.montoobrasocial = montoobrasocial;
+        this.montodeaporteju = montodeaporteju;
+        this.montodeaporteobsoc = montodeaporteobsoc;
+        this.netocobrar = netocobrar;
+    }
 
 /*Todo los codigos get*/
     public int getIdsueldo(){
